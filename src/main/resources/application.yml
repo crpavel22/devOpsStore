@@ -1,0 +1,16 @@
+spring:
+  profiles:
+    active:
+      - hot-box
+      - local
+
+  application:
+    name: Store
+  output:
+    ansi:
+      enabled: always
+
+logging:
+  level:
+    org.springframework: INFO
+    com.castillo.pavel.store: DEBUG

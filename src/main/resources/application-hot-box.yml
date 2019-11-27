@@ -1,0 +1,19 @@
+spring:
+  profiles: local
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        web-allow-others: true
+        trace: false
+      path: /database/h2
+  datasource:
+    username: sa
+    password:
+    url: jdbc:h2:file:./data/store;DB_CLOSE_ON_EXIT=FALSE
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true

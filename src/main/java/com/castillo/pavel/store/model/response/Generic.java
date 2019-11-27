@@ -12,7 +12,7 @@ public class Generic {
 
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "MMM dd, yyyy HH:mm:ss")
     @JsonProperty("date")
-    private final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.now();
+    private static final LocalDateTime LOCAL_DATE_TIME = LocalDateTime.now();
     private HttpStatus status;
 
     public HttpStatus getStatus() {

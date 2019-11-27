@@ -2,6 +2,15 @@ spring:
   profiles: prod
 
   datasource:
-    url: jdbc:mysql://localhost:3306/store?useSSL=false&allowPublicKeyRetrieval=true
-    username: admin
-    password: 4dm1n
+    url: jdbc:mysql://localhost:6033/store?useSSL=false&allowPublicKeyRetrieval=true
+    #    url: jdbc:mysql://172.19.0.2:6033/store?useSSL=false
+    username: root
+    password: root
+    platform: mysql
+    initialization-mode: always
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    database: mysql

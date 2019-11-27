@@ -1,8 +1,8 @@
 spring:
   profiles:
     active:
-      - hot-box
-      - local
+      - cold-box
+      - prod
 
   application:
     name: Store

@@ -21,14 +21,6 @@ pipeline{
             steps {
                 sh './gradlew --no-daemon spotbugsMain'
             }
-            post {
-                always {
-                    step ([
-                            pattern        : 'build/reports/findbugs/*.xml',
-                            canRunOnFailed : true
-                    ])
-                }
-            }
         }
 
         stage('Test') {

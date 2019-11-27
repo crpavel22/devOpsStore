@@ -30,7 +30,9 @@ pipeline{
 
         stage('Build') {
             steps {
+
                 sh './gradlew --no-daemon build -x check'
+
             }
         }
     }

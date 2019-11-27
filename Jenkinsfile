@@ -17,6 +17,12 @@ pipeline{
             }
         }
 
+        stage('Spot bugs') {
+            steps {
+                sh './gradlew --no-daemon spotbugsMain'
+            }
+        }
+
         stage('Test') {
             steps {
                 sh './gradlew --no-daemon check'

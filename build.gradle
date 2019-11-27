@@ -1,7 +1,20 @@
+import com.github.spotbugs.SpotBugsTask
+
 plugins {
 	id 'org.springframework.boot' version '2.2.1.RELEASE'
 	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
+	id  'com.github.spotbugs' version '1.6.10'
+}
+
+spotbugs {
+	toolVersion = '3.1.12'
+}
+
+// To generate an HTML report instead of XML
+tasks.withType(SpotBugsTask) {
+	reports.xml.enabled = false
+	reports.html.enabled = true
 }
 
 group = 'com.castillo.pavel'
@@ -23,6 +36,9 @@ repositories {
 }
 
 dependencies {
+	compile ('com.github.spotbugs:spotbugs:3.1.12') {
+		exclude group: 'org.slf4j', module: 'slf4j-simple'
+	}
 	compile group: 'io.springfox', name: 'springfox-swagger-ui', version: '2.9.2'
 	compile group: 'io.springfox', name: 'springfox-swagger2', version: '2.9.2'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'

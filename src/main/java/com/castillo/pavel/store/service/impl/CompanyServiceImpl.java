@@ -8,7 +8,7 @@ import com.castillo.pavel.store.repository.CompanyRepository;
 import com.castillo.pavel.store.service.CompanyService;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,7 +42,7 @@ public class CompanyServiceImpl implements CompanyService {
     public CompanyResponse addOne(CompanyRequest companyRequest) {
         CompanyEntity ce = new CompanyEntity();
         ce.setName(companyRequest.getName());
-        ce.setCreateDate(new Date());
+        ce.setCreateDate(LocalDateTime.now());
         ce.setStatus(companyRequest.getStatus());
         ce = companyRepository.save(ce);
 
@@ -51,12 +51,6 @@ public class CompanyServiceImpl implements CompanyService {
 
     @Override
     public CompanyResponse update(CompanyRequest companyRequest, Long companyId) {
-
-        CompanyEntity ce = new CompanyEntity();
-        ce.setName(companyRequest.getName());
-        ce.setCreateDate(new Date());
-        ce.setStatus(companyRequest.getStatus());
-        ce.setCompanyId(companyId);
 
         return companyRepository.findById(companyId).map(
                 c -> {

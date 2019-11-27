@@ -2,7 +2,7 @@
 pipeline{
     agent any
 
-    options {disableConcurrentBuilds}
+    options {disableConcurrentBuilds()}
 
     stages {
         stage('Permissions') {
